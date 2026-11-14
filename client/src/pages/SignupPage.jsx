@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mic, Lock, Mail, User, Shield, ArrowRight, AlertCircle, Loader2 } from 'lucide-react';
+import { Mic, Lock, Mail, User, Shield, ArrowRight, AlertCircle, Loader2, Sparkles, UserCheck } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import RainbowWaveBackground from '../components/RainbowWaveBackground';
 
@@ -12,8 +12,20 @@ export default function SignupPage() {
   const [loading, setLoading] = useState(false);
   const [localError, setLocalError] = useState(null);
 
-  const { signup, error: authError } = useAuth();
+  const { signup, demoLogin, error: authError } = useAuth();
   const navigate = useNavigate();
+
+  const handleDemoLogin = async (selectedRole) => {
+    setLoading(true);
+    setLocalError(null);
+    const res = await demoLogin(selectedRole);
+    setLoading(false);
+    if (res.success) {
+      navigate('/dashboard');
+    } else {
+      setLocalError(res.error || 'Demo login failed');
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,6 +84,35 @@ export default function SignupPage() {
 
         {/* Card */}
         <div className="glass-card p-6 sm:p-8 rounded-2xl border border-slate-200/90 dark:border-slate-800/90 shadow-xl space-y-6">
+          {/* 1-Click Evaluator Demo Shortcuts */}
+          <div className="p-3.5 rounded-xl bg-brand-50/80 dark:bg-brand-950/50 border border-brand-500/30 text-xs space-y-2">
+            <div className="flex items-center space-x-1.5 font-semibold text-brand-700 dark:text-brand-300">
+              <Sparkles className="w-3.5 h-3.5 text-brand-500" />
+              <span>Instant Evaluator Demo Access:</span>
+            </div>
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <button
+                type="button"
+                onClick={() => handleDemoLogin('student')}
+                disabled={loading}
+                className="w-full py-2 px-3 rounded-lg bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-medium text-xs flex items-center justify-center space-x-1 shadow-xs transition-colors"
+              >
+                <UserCheck className="w-3.5 h-3.5 text-emerald-500" />
+                <span>Demo Student</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleDemoLogin('admin')}
+                disabled={loading}
+                className="w-full py-2 px-3 rounded-lg bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-medium text-xs flex items-center justify-center space-x-1 shadow-xs transition-colors"
+              >
+                <Shield className="w-3.5 h-3.5 text-brand-500" />
+                <span>Demo Admin</span>
+              </button>
+            </div>
+          </div>
+
           {displayError && (
             <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 text-xs text-rose-600 dark:text-rose-400 flex items-start space-x-2 animate-in fade-in">
               <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />

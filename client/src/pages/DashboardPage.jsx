@@ -286,13 +286,17 @@ export default function DashboardPage() {
       }
     } catch (err) {
       console.error('Error sending message:', err);
-      // Add error feedback in chat stream
+      // Informative user-friendly feedback in chat stream
+      const isNetworkErr = !err.response;
+      const errorText = isNetworkErr
+        ? 'Could not connect to the VoiceBridge backend server. If using cloud hosting (Render), the backend web service may be waking up from cold sleep (takes ~20-30s on free tier). Please retry your message.'
+        : (err.response?.data?.error || 'Sorry, I encountered an issue processing your request. Please try again.');
       setMessages((prev) => [
         ...prev,
         {
           id: 'err-' + Date.now(),
           sender: 'ai',
-          content: 'Sorry, I encountered an issue connecting to the AI relay. Please try again.',
+          content: errorText,
           language: selectedLanguage,
           created_at: new Date().toISOString(),
         },

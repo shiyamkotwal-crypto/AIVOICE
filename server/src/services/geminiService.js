@@ -107,25 +107,26 @@ export function extractIntentAndActions(message, responseText, domain, language)
     query.includes('फीस') ||
     query.includes('ಶುಲ್ಕ') ||
     query.includes('ಫೀಸ್') ||
-    query.includes('tuition')
+    query.includes('tuition') ||
+    query.includes('scholarship')
   ) {
-    intent = 'Fee Payment & Admissions';
+    intent = 'Yenepoya Admissions & Fee Services';
     confidence = '99%';
     sentiment = 'Procedural & Direct';
     actions.push({
       type: 'portal',
-      title: 'Student ERP Fee Portal',
-      label: 'Launch Fee Payment Gateway',
-      url: 'https://fees.campus.edu',
-      description: 'Pay via UPI, Net Banking or Card with instant official receipt generation.',
+      title: 'Yenepoya Student ERP Fee Portal',
+      label: 'Yenepoya Online Payment Gateway',
+      url: 'https://portal.yenepoya.edu.in',
+      description: 'Official fee payment for MBBS, BDS, B.Tech, BCA, Nursing, Pharmacy & Allied Health.',
     });
     actions.push({
       type: 'form',
-      title: 'Fee Structure Document',
-      label: 'Download Academic Fee Schedule (PDF)',
-      filename: 'Academic_Fee_Structure_2026.pdf',
+      title: 'Yenepoya Fee Schedule & Regulations',
+      label: 'Download Fee Schedule 2026 (PDF)',
+      filename: 'Yenepoya_University_Fee_Schedule_2026.pdf',
       size: '340 KB',
-      description: 'Official academic term breakdown, deadlines, and instalment policies.',
+      description: 'Official schedule of academic tuition, laboratory fees, and Canara Bank payment counters.',
     });
   }
 
@@ -140,27 +141,28 @@ export function extractIntentAndActions(message, responseText, domain, language)
     query.includes('ವೈಫೈ') ||
     query.includes('ಪಾಸ್‌ವರ್ಡ್') ||
     query.includes('network') ||
+    query.includes('yen-net') ||
     query.includes('sso')
   ) {
-    intent = 'Wi-Fi & Portal Authentication';
+    intent = 'Yen-Net Wi-Fi & IT Helpdesk';
     confidence = '98%';
     sentiment = 'Diagnostic & Solution-Driven';
     actions.push({
       type: 'location',
-      title: 'IT Helpdesk Counter',
-      label: 'View Tech Block, Room 204',
-      building: 'Technology Center Block',
-      room: 'Room 204',
+      title: 'Yenepoya IT Directorate & Helpdesk',
+      label: 'Technology Center, Room 204',
+      building: 'Technology Block, Deralakatte',
+      room: 'Room 204 (IT Support)',
       floor: '2nd Floor',
-      hours: 'Mon-Fri: 9:00 AM - 6:00 PM',
-      description: 'Walk in for MAC address whitelisting, VPN configuration, and hardware diagnostics.',
+      hours: 'Mon-Sat: 8:30 AM - 5:30 PM',
+      description: 'Walk in for Yen-Net MAC registration, device security certificates, and university email setup.',
     });
     actions.push({
       type: 'portal',
-      title: 'Self-Service SSO Portal',
-      label: 'Reset Portal Credentials',
-      url: 'https://auth.campus.edu/reset',
-      description: 'Automated password recovery with mobile and email OTP verification.',
+      title: 'Yenepoya Student ERP Portal',
+      label: 'Access Yenepoya ERP & Password Reset',
+      url: 'https://portal.yenepoya.edu.in',
+      description: 'Self-service portal for internal marks, attendance, exam hall tickets, and password recovery.',
     });
   }
 
@@ -173,25 +175,25 @@ export function extractIntentAndActions(message, responseText, domain, language)
     query.includes('पुस्तकालय') ||
     query.includes('ಲೈಬ್ರರಿ')
   ) {
-    intent = 'Library Services & Hours';
+    intent = 'Yenepoya Knowledge Resource Centre';
     confidence = '98%';
     sentiment = 'Supportive & Informative';
     actions.push({
       type: 'location',
-      title: 'Central University Library',
-      label: 'Main Quadrangle Library Building',
-      building: 'Knowledge & Learning Center',
-      room: 'Main Circulation & Reference Desk',
-      floor: 'Ground & 1st Floor',
-      hours: 'Mon-Sat: 8:00 AM - 10:00 PM (24/7 during exam weeks)',
-      description: 'Access digital study pods, reference archives, and RFID checkout stations.',
+      title: 'University Central Library',
+      label: 'Knowledge Resource Centre (5 Floors)',
+      building: 'Central Library Building, Deralakatte',
+      room: 'Circulation & RFID Helpdesk, 1st Floor',
+      floor: 'Floors 1 to 5',
+      hours: 'Mon-Sat: 8:00 AM - 11:00 PM (24/7 during university exams)',
+      description: '150,000+ medical and engineering volumes, DELNET, PubMed e-journal pods, and discussion halls.',
     });
     actions.push({
       type: 'portal',
-      title: 'Online Catalogue (OPAC)',
-      label: 'Search Digital Book Catalogue',
-      url: 'https://library.campus.edu/opac',
-      description: 'Reserve physical copies or download peer-reviewed academic journals.',
+      title: 'Yenepoya Digital OPAC Catalogue',
+      label: 'Search Library OPAC Catalogue',
+      url: 'https://library.yenepoya.edu.in',
+      description: 'Search online catalog, reserve books, and access international research journals.',
     });
   }
 
@@ -205,30 +207,30 @@ export function extractIntentAndActions(message, responseText, domain, language)
     query.includes('ಮೆಸ್') ||
     query.includes('हॉस्टल')
   ) {
-    intent = 'Hostel & Residential Life';
+    intent = 'Yenepoya Residential Life & Hostels';
     confidence = '96%';
     sentiment = 'Caring & Direct';
     actions.push({
       type: 'location',
       title: 'Chief Warden Directorate',
-      label: 'Hostel Complex Block A',
-      building: 'Residential Complex',
+      label: 'Hostel Complex Block A, Deralakatte',
+      building: 'Hostel Administrative Office',
       room: 'Chief Warden Suite 101',
       floor: 'Ground Floor',
-      hours: 'Mon-Fri: 10:00 AM - 4:00 PM',
-      description: 'Room allocations, maintenance ticketing, and official leave clearances.',
+      hours: 'Mon-Fri: 9:00 AM - 5:00 PM',
+      description: 'Zulekha Ladies Hostel and Men’s Hostels room allocations, biometric turnstiles, and mess cards.',
     });
     actions.push({
       type: 'form',
-      title: 'Room Re-Allocation Form',
+      title: 'Hostel Requisition Application',
       label: 'Download Hostel Allotment Form (PDF)',
-      filename: 'Hostel_Allotment_Application.pdf',
+      filename: 'Yenepoya_Hostel_Allotment_Requisition.pdf',
       size: '190 KB',
-      description: 'Submit request with roommate preferences and semester fee clearance.',
+      description: 'Submit request for AC/non-AC room allocation and dietary mess registration.',
     });
   }
 
-  // 5. ID Card / Certificate / Transcript / Administrative (Strict matching, NO domain fallback hijack)
+  // 5. ID Card / Certificate / Transcript / Administrative
   else if (
     /\b(id\s*card|identity\s*card|student\s*id|bonafide|certificate|transcript|marks\s*card)\b/i.test(query) ||
     query.includes('ಗುರುತಿನ ಚೀಟಿ') ||
@@ -241,26 +243,26 @@ export function extractIntentAndActions(message, responseText, domain, language)
     query.includes('अंकतालिका') ||
     query.includes('आईडी कार्ड')
   ) {
-    intent = 'Administrative & Student Records';
+    intent = 'Yenepoya Registrar Student Records';
     confidence = '99%';
     sentiment = 'Policy Compliant & Reassuring';
     actions.push({
       type: 'location',
-      title: 'Registrar Office Records',
-      label: 'Admin Block, Counter 4',
-      building: 'Central Administration Block',
+      title: 'Registrar Student Affairs Counter',
+      label: 'Admin Block, Counter 4, Deralakatte',
+      building: 'University Administrative Block',
       room: 'Counter 4 (Student Services)',
       floor: 'Ground Floor',
-      hours: 'Mon-Fri: 9:30 AM - 4:30 PM',
-      description: 'Submit duplicate ID applications and collect officially sealed transcripts.',
+      hours: 'Mon-Fri: 9:00 AM - 4:30 PM, Sat: 9:00 AM - 1:00 PM',
+      description: 'Issuance of official bonafide certificates, duplicate ID cards, and verified academic transcripts.',
     });
     actions.push({
       type: 'form',
-      title: 'Official ID Replacement Form',
+      title: 'Official ID Replacement & Bonafide Form',
       label: 'Download ID Replacement Form (PDF)',
-      filename: 'Student_ID_Replacement_Form.pdf',
+      filename: 'Yenepoya_Student_ID_Replacement_Form.pdf',
       size: '220 KB',
-      description: 'Includes formal clearance sign-off section and photo submission guidelines.',
+      description: 'Formal clearance sign-off for lost smart cards and registrar attestation.',
     });
   }
 
@@ -271,8 +273,12 @@ export function extractIntentAndActions(message, responseText, domain, language)
     sentiment = 'Helpful & Reassuring';
     actions.push({
       type: 'portal',
-      title: 'Central Campus Portal',
-      label: 'Open Campus Self-Service Portal',
+      title: 'Yenepoya University ERP Portal',
+      label: 'Open Yenepoya Student Portal',
+      url: 'https://portal.yenepoya.edu.in',
+      description: 'Access institutional announcements, examination schedules, and academic services.',
+    });
+  }
       url: 'https://portal.campus.edu',
       description: 'Access institutional announcements, schedules, and services.',
     });
@@ -295,37 +301,41 @@ export async function generateConversationalResponse({
   const effectiveLanguage = scriptLanguage || language;
   const languageName = LANGUAGE_MAP[effectiveLanguage] || effectiveLanguage;
 
-  // Domain instructions
+  // Domain instructions grounded in Yenepoya (Deemed to be University)
   const domainPrompts = {
     'Academic & Admissions':
-      'Focus on course syllabi, semester credits, fee structures, admissions cutoff, examination schedules, grading policies, and transfer guidelines.',
+      'Focus on Yenepoya (Deemed to be University) course offerings (MBBS, BDS, B.Tech in CSE/AI/Data Science, BBA, BCA, B.Sc Nursing, B.Pharm, MBA), entrance eligibility (NEET for Medical/Dental, KCET/YEN-JET for Engineering, direct counseling for Arts/Science/Commerce), semester tuition payment via Yenepoya Student ERP (portal.yenepoya.edu.in) or Finance Counter 3, exam schedules, and merit/minority scholarships.',
     'Technical Helpdesk':
-      'Focus on campus Wi-Fi configuration (SSID, 802.1X, MAC address registration), student portal SSO authentication, VPN access, software licensing, and computer lab equipment.',
+      'Focus on Yen-Net campus Wi-Fi (SSID: Yenepoya-WiFi & Yen-Net-Student, 802.1X secure authentication), MAC address registration at Technology Center Room 204, Yenepoya Student ERP portal credentials (portal.yenepoya.edu.in), institutional email (@yenepoya.edu.in), and IT Helpdesk support (Ext: 2040, ithelpdesk@yenepoya.edu.in).',
     'Campus Facilities':
-      'Focus on hostel room allocation, mess food timings, campus shuttle and transport routes, sports complex booking, library timings, and health center facilities.',
+      'Focus on Yenepoya Central Knowledge Resource Centre (5-story library, 150,000+ volumes, RFID, PubMed, open 8 AM - 11 PM / 24/7 during exams), Zulekha Ladies Hostel, Yenepoya Men’s Hostels (Blocks A-D), 1100-bed Yenepoya Hospital (free student OPD & 24/7 emergency casualty), FIFA-grade football turf, indoor sports arena, and Mangalore-Deralakatte university transit buses.',
     'General Administrative':
-      'Focus on student ID card issuance, bonafide certificates, official transcripts, fee payment receipts, scholarships, and registrar office clearance.',
+      'Focus on Yenepoya University Administrative Block, Deralakatte: Counter 4 for Bonafide certificates, transfer/migration certificates, and official sealed transcripts; Room 104 for Smart ID card replacement; Registrar Office clearances; and Canara Bank campus extension counter.',
   };
 
   const domainInstruction = domainPrompts[domain] || domainPrompts['General Administrative'];
 
   const personaInstruction =
     persona === 'admin'
-      ? 'PERSONA: Formal Admin Bot. Your tone is institutional, authoritative, precise, policy-oriented, and highly professional. Use respectful, dignified phrasing and clear institutional instructions.'
-      : 'PERSONA: Friendly Campus Buddy. Your tone is energetic, warm, supportive, approachable, and encouraging. Address the user like a smart senior campus guide who is always happy to help make university life easy.';
+      ? 'PERSONA: Formal Yenepoya Administrative Officer. Your tone is institutional, authoritative, precise, policy-oriented, and highly professional. Use respectful, dignified phrasing and clear institutional instructions.'
+      : 'PERSONA: Friendly Yenepoya Campus Buddy. Your tone is energetic, warm, supportive, approachable, and encouraging. Address the user like a knowledgeable senior student at Yenepoya University who loves helping peers navigate college life easily.';
 
-  const systemInstruction = `You are VoiceBridge AI, an elite multilingual conversational voice assistant for academic campuses and enterprise organizations.
-Target Domain: "${domain}".
-${domainInstruction}
-${personaInstruction}
+  const systemInstruction = `You are VoiceBridge AI, the official multilingual conversational voice intelligence system for Yenepoya (Deemed to be University), Deralakatte, Mangaluru, Karnataka (NAAC 'A+' Accredited).
 
-Target Language: "${languageName}".
+INSTITUTIONAL KNOWLEDGE CONTEXT:
+- Institution: Yenepoya (Deemed to be University), University Road, Deralakatte, Mangaluru, Karnataka - 575018.
+- Constituent Colleges: Yenepoya Medical College & Hospital (YMCH), Yenepoya Dental College (YDC), Yenepoya Institute of Technology (YIT), Yenepoya Institute of Arts, Science, Commerce & Management (YIASCM), Yenepoya Nursing College, Yenepoya Pharmacy College & Research Centre, Yenepoya Physiotherapy & Allied Health Sciences.
+- Target Domain: "${domain}".
+- Domain Directives: ${domainInstruction}
+- Persona Style: ${personaInstruction}
+
+TARGET LANGUAGE: "${languageName}".
 CRITICAL VOICE & TTS RULES:
-1. Formulate your entire response fluently in the requested language: ${languageName}.
+1. Formulate your entire response fluently in the requested language: ${languageName}. If the query is in Kannada (ಕನ್ನಡ), respond fluently in authentic Kannada script. If in Hindi (हिन्दी), respond in natural Hindi. If in English, respond in articulate English.
 2. Your response will be synthesized and read aloud via browser Text-to-Speech (TTS). Therefore:
-   - Speak naturally, concisely (2 to 4 punchy sentences or clean bullet points).
+   - Speak naturally and concisely (2 to 4 punchy, clear sentences or neat spoken points).
    - NEVER use markdown tables, dense mathematical formulas, complex ascii diagrams, or excessive asterisks.
-   - Use clear spoken phrasing that sounds pleasant when heard through a speaker.
+   - Use clear spoken phrasing that sounds pleasant, authentic, and informative when heard through a speaker.
 3. Maintain conversational context from earlier messages in this interaction.`;
 
   // Format history for context
@@ -454,20 +464,20 @@ function getSimulatedDomainKnowledgeResponse(message, language, domain, persona 
   if (isGreeting) {
     if (langKey === 'kn') {
       return isFormal
-        ? 'ನಮಸ್ಕಾರಗಳು. VoiceBridge ವಿಶ್ವವಿದ್ಯಾಲಯ ಅಧಿಕೃತ ಮಾಹಿತಿ ಕೇಂದ್ರಕ್ಕೆ ಸುಸ್ವಾಗತ. ಶೈಕ್ಷಣಿಕ ದಾಖಲೆಗಳು, ಆಡಳಿತಾತ್ಮಕ ಕಾರ್ಯವಿಧಾನಗಳು ಅಥವಾ ಕ್ಯಾಂಪಸ್ ಸೇವೆಗಳ ಕುರಿತು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?'
-        : 'ನಮಸ್ಕಾರ! VoiceBridge AI ಕ್ಯಾಂಪಸ್ ಸಹಾಯಕಕ್ಕೆ ಸುಸ್ವಾಗತ. ಗ್ರಂಥಾಲಯದ ಸಮಯ, ಸೆಮಿಸ್ಟರ್ ಶುಲ್ಕ, ಹಾಸ್ಟೆಲ್ ಸೌಲಭ್ಯ, ಪರೀಕ್ಷೆಗಳು ಅಥವಾ ಕ್ಯಾಂಪಸ್ ವೈ-ಫೈ ಬಗ್ಗೆ ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ?';
+        ? 'ನಮಸ್ಕಾರಗಳು. ಯೆನೆಪೊಯ ಪರಿಗಣಿಸಲ್ಪಟ್ಟ ವಿಶ್ವವಿದ್ಯಾಲಯ (Yenepoya Deemed to be University) ಅಧಿಕೃತ ಮಾಹಿತಿ ಕೇಂದ್ರಕ್ಕೆ ಸುಸ್ವಾಗತ. ಪ್ರವೇಶಗಳು, ಶುಲ್ಕ, ಗ್ರಂಥಾಲಯ, ಹಾಸ್ಟೆಲ್ ಅಥವಾ ಯೆನ್-ನೆಟ್ ವೈ-ಫೈ ಕುರಿತು ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಬೇಕು?'
+        : 'ನಮಸ್ಕಾರ! ಯೆನೆಪೊಯ ವಿಶ್ವವಿದ್ಯಾಲಯ (Yenepoya University) VoiceBridge AI ಕ್ಯಾಂಪಸ್ ಸಹಾಯಕಕ್ಕೆ ಸುಸ್ವಾಗತ. ಡೆರಳಕಟ್ಟೆ ಕ್ಯಾಂಪಸ್‌ನ ಗ್ರಂಥಾಲಯ, ಸೆಮಿಸ್ಟರ್ ಶುಲ್ಕ, ಹಾಸ್ಟೆಲ್, ಅಥವಾ ಪರೀಕ್ಷೆಗಳ ಬಗ್ಗೆ ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ?';
     }
     if (langKey === 'hi') {
       return isFormal
-        ? 'नमस्कार। VoiceBridge विश्वविद्यालय प्रशासनिक सेवा केंद्र में आपका स्वागत है। कृपया बताएं कि आप प्रवेश, पुस्तकालय, शुल्क, परीक्षा या छात्रावास के संबंध में क्या जानकारी चाहते हैं?'
-        : 'नमस्ते! VoiceBridge AI कैंपस गाइड में आपका स्वागत है। मैं लाइब्रेरी, हॉस्टल, सेमेस्टर फीस, परीक्षा या कैंपस वाई-फाई के बारे में आपकी क्या मदद कर सकता हूँ?';
+        ? 'नमस्कार। येनेपोया विश्वविद्यालय (Yenepoya Deemed to be University) आधिकारिक सेवा केंद्र में आपका स्वागत है। कृपया बताएं कि प्रवेश, शुल्क, पुस्तकालय, येन-नेट वाई-फाई या छात्रावास के बारे में आपको क्या जानकारी चाहिए?'
+        : 'नमस्ते! येनेपोಯಾ यूनिवर्सिटी (Yenepoya University) वॉइस गाइड में आपका स्वागत है। मैं लाइब्रेरी, हॉस्टल, सेमेस्टर फीस, परीक्षा या येन-नेट वाई-फाई के बारे में आपकी क्या मदद कर सकता हूँ?';
     }
     if (langKey === 'es') {
-      return '¡Hola! Bienvenido a VoiceBridge AI. ¿En qué puedo colaborarte hoy respecto a la biblioteca, matrículas, residencia estudiantil o servicios del campus?';
+      return '¡Hola! Bienvenido a Yenepoya Deemed to be University VoiceBridge AI. ¿En qué puedo orientarte hoy sobre la biblioteca central, admisiones, residencia o soporte técnico Yen-Net?';
     }
     return isFormal
-      ? 'Greetings. Welcome to VoiceBridge University Information Services. Please specify the academic, administrative, facility, or fee inquiry you require assistance with.'
-      : 'Hello! Welcome to VoiceBridge AI, your friendly campus guide. How can I help you today with library hours, course fees, hostel facilities, Wi-Fi setup, or exam schedules?';
+      ? 'Greetings. Welcome to Yenepoya (Deemed to be University) Official Information Services, Deralakatte. Please specify your academic, fee payment, facility, or Yen-Net IT helpdesk inquiry.'
+      : 'Hello! Welcome to Yenepoya (Deemed to be University) VoiceBridge AI guide. How can I help you today with admissions, course fees, Central Library hours, hostels, or Yen-Net Wi-Fi setup?';
   }
 
   // 1. HOW ARE YOU / WELL-BEING
@@ -538,54 +548,67 @@ function getSimulatedDomainKnowledgeResponse(message, language, domain, persona 
     return 'I am VoiceBridge AI — your intelligent multilingual campus assistant. I can converse in English, Kannada, Hindi, and more to answer questions on library hours, fee payments, hostel allotments, exams, and IT support.';
   }
 
-  // 1. Campus Facilities (Library, Hostel, Mess, Transport, Sports)
+  // 1. Campus Facilities (Library, Hostel, Mess, Transport, Sports, Hospital)
   if (
     domain === 'Campus Facilities' ||
     query.includes('library') ||
     query.includes('hostel') ||
+    query.includes('hospital') ||
+    query.includes('doctor') ||
+    query.includes('sports') ||
     query.includes('ಸಮಯ') ||
     query.includes('ಗ್ರಂಥಾಲಯ') ||
     query.includes('ಲೈಬ್ರರಿ') ||
-    query.includes('ಪುಸ್ತಕ')
+    query.includes('ಪುಸ್ತಕ') ||
+    query.includes('ಆಸ್ಪತ್ರೆ')
   ) {
     if (langKey === 'kn') {
       if (query.includes('ಗ್ರಂಥಾಲಯ') || query.includes('ಲೈಬ್ರರಿ') || query.includes('ಸಮಯ') || query.includes('ಪುಸ್ತಕ')) {
-        return 'ಕೇಂದ್ರ ಗ್ರಂಥಾಲಯವು ಸೋಮವಾರದಿಂದ ಶನಿವಾರದವರೆಗೆ ಬೆಳಿಗ್ಗೆ 8:00 ರಿಂದ ರಾತ್ರಿ 10:00 ರವರೆಗೆ ತೆರೆದಿರುತ್ತದೆ. ಪರೀಕ್ಷಾ ಸಮಯದಲ್ಲಿ ಓದುವ ಕೊಠಡಿಯು 24 ಗಂಟೆಯೂ ಲಭ್ಯವಿರುತ್ತದೆ. ಡಿಜಿಟಲ್ ಪುಸ್ತಕಗಳನ್ನು ವಿದ್ಯಾರ್ಥಿ ಐಡಿ ಬಳಸಿ ಪಡೆಯಬಹುದು.';
+        return 'ಯೆನೆಪೊಯ ಕೇಂದ್ರ ಜ್ಞಾನ ಸಂಪನ್ಮೂಲ ಕೇಂದ್ರ (Central Library) ಸೋಮವಾರದಿಂದ ಶನಿವಾರ ಬೆಳಿಗ್ಗೆ 8:00 ರಿಂದ ರಾತ್ರಿ 11:00 ರವರೆಗೆ ತೆರೆದಿರುತ್ತದೆ. ಪರೀಕ್ಷಾ ಸಮಯದಲ್ಲಿ 5 ಅಂತಸ್ತಿನ ಈ ಗ್ರಂಥಾಲಯದ ಓದುವ ಕೊಠಡಿಯು 24 ಗಂಟೆಯೂ ಲಭ್ಯವಿರುತ್ತದೆ. ಡಿಜಿಟಲ್ ಜರ್ನಲ್ಸ್ ಮತ್ತು PubMed ಸೌಲಭ್ಯ ವಿದ್ಯಾರ್ಥಿ ಐಡಿ ಮೂಲಕ ಲಭ್ಯ.';
       }
       if (query.includes('ಹಾಸ್ಟೆಲ್') || query.includes('ರೂಮ್')) {
-        return 'ಹಾಸ್ಟೆಲ್ ಕೊಠಡಿ ಹಂಚಿಕೆ ಮತ್ತು ನಿರ್ವಹಣೆಗಾಗಿ ಚೀಫ್ ವಾರ್ಡನ್ ಕಚೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ ಅಥವಾ ವಿದ್ಯಾರ್ಥಿ ಪೋರ್ಟಲ್ ಮೂಲಕ ಆನ್‌ಲೈನ್ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.';
+        return 'ಯೆನೆಪೊಯ ಜುಲೈಖಾ ಮಹಿಳಾ ಹಾಸ್ಟೆಲ್ ಮತ್ತು ಪುರುಷರ ಹಾಸ್ಟೆಲ್‌ಗಳಲ್ಲಿ ಎಸಿ ಮತ್ತು ನಾನ್-ಎಸಿ ಕೊಠಡಿಗಳು ಲಭ್ಯವಿದೆ. ಕೊಠಡಿ ಹಂಚಿಕೆಗಾಗಿ ಹಾಸ್ಟೆಲ್ ಕಾಂಪ್ಲೆಕ್ಸ್ ಬ್ಲಾಕ್ ಎ ನಲ್ಲಿರುವ ಚೀಫ್ ವಾರ್ಡನ್ ಕಚೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.';
       }
-      return 'ಕ್ಯಾಂಪಸ್ ಸೌಲಭ್ಯಗಳಾದ ಕೇಂದ್ರ ಗ್ರಂಥಾಲಯ, ಕ್ರೀಡಾ ಸಂಕೀರ್ಣ, ಆರೋಗ್ಯ ಕೇಂದ್ರ ಮತ್ತು ಹಾಸ್ಟೆಲ್ ಸೇವೆಗಳು ಸಂಪೂರ್ಣವಾಗಿ ಸಕ್ರಿಯವಾಗಿವೆ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಮುಖ್ಯ ಕೌಂಟರ್ ಸಂಪರ್ಕಿಸಿ.';
+      if (query.includes('ಆಸ್ಪತ್ರೆ') || query.includes('ಆರೋಗ್ಯ')) {
+        return 'ಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿರುವ 1100 ಹಾಸಿಗೆಗಳ ಯೆನೆಪೊಯ ಮೆಡಿಕಲ್ ಕಾಲೇಜು ಆಸ್ಪತ್ರೆಯಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಉಚಿತ ಹೊರರೋಗಿ (OPD) ತಪಾಸಣೆ ಮತ್ತು 24/7 ತುರ್ತು ಚಿಕಿತ್ಸಾ ಸೌಲಭ್ಯವಿದೆ.';
+      }
+      return 'ಯೆನೆಪೊಯ ಡೆರಳಕಟ್ಟೆ ಕ್ಯಾಂಪಸ್ ಸೌಲಭ್ಯಗಳು: ಕೇಂದ್ರ ಜ್ಞಾನ ಸಂಪನ್ಮೂಲ ಕೇಂದ್ರ, ಯೆನೆಪೊಯ ಮಲ್ಟಿ-ಸ್ಪೆಷಾಲಿಟಿ ಆಸ್ಪತ್ರೆ, ಫಿಫಾ ದರ್ಜೆಯ ಫುಟ್‌ಬಾಲ್ ಮೈದಾನ, ಒಳಾಂಗಣ ಕ್ರೀಡಾಂಗಣ ಮತ್ತು ಮಂಗಳೂರು ನಗರಕ್ಕೆ ಬಸ್ ಸಾರಿಗೆ ಸಂಪರ್ಕ ಸಂಪೂರ್ಣ ಲಭ್ಯವಿದೆ.';
     }
 
     if (langKey === 'hi') {
       if (query.includes('पुस्तकालय') || query.includes('लाइब्रेरी') || query.includes('समय')) {
         return isFormal
-          ? 'केंद्रीय पुस्तकालय सोमवार से शनिवार प्रातः 8:00 बजे से रात्रि 10:00 बजे तक संचालित होता है। परीक्षा अवधि में अध्ययन कक्ष 24 घंटे खुला रहता है।'
-          : 'अरे दोस्त! सेंट्रल लाइब्रेरी सोमवार से शनिवार सुबह 8:00 से रात 10:00 बजे तक खुली है। एग्जाम टाइम में तो 24 घंटे रीडिंग रूम खुला रहता है!';
+          ? 'येनेपोया केंद्रीय ज्ञान संसाधन केंद्र (Central Library) सोमवार से शनिवार प्रातः 8:00 बजे से रात्रि 11:00 बजे तक खुला रहता है। विश्वविद्यालय परीक्षा अवधि में 5 मंजिला पुस्तकालय 24 घंटे अध्ययन हेतु खुला रहता है।'
+          : 'येनेपोया सेंट्रल लाइब्रेरी सोमवार से शनिवार सुबह 8:00 से रात 11:00 बजे तक खुली है! एग्जाम के समय रीडिंग रूम 24 घंटे खुला रहता है, जिसमें 1.5 लाख से अधिक पुस्तकें और पबमेड ई-जर्नल्स उपलब्ध हैं।';
       }
       if (query.includes('हॉस्टल') || query.includes('कमरा')) {
-        return 'हॉस्टल रूम आवंटन और मेस के समय: मेस में नाश्ता 7:30 से 9:30 और रात का खाना 8:00 से 10:00 बजे तक उपलब्ध रहता है।';
+        return 'येनेपोया जुलेखा महिला छात्रावास और पुरुष छात्रावास (ब्लॉक ए-डी) में बायोमेट्रिक सुरक्षा और मेस सुविधा उपलब्ध है। कमरे आवंटन हेतु हॉस्टल ब्लॉक ए स्थित चीफ वार्डन कार्यालय से संपर्क करें।';
       }
-      return 'कैंपस सुविधाओं में 24/7 स्वास्थ्य केंद्र, स्पोर्ट्स कॉम्प्लेक्स, सेंट्रल लाइब्रेरी और कैंटीन शामिल हैं।';
+      if (query.includes('अस्पताल') || query.includes('इलाज')) {
+        return 'कैंपस में स्थित 1100 बेड का येनेपोया मेडिकल कॉलेज अस्पताल सभी नामांकित विद्यार्थियों को मुफ्त ओपीडी और 24/7 इमरजेंसी कैजुअल्टी सेवा प्रदान करता है।';
+      }
+      return 'येनेपोया कैंपस सुविधाओं में 1100-बेड अस्पताल, सेंट्रल नॉलेज रिसोर्स सेंटर, फीफा मानक फुटबॉल टर्फ, इंडोर स्पोर्ट्स एरेना और छात्र बस परिवहन शामिल हैं।';
     }
 
     if (langKey === 'es') {
-      return 'La biblioteca central está abierta de lunes a sábado de 8:00 AM a 10:00 PM. El servicio de transporte del campus opera cada 20 minutos.';
+      return 'La Biblioteca Central de Yenepoya University abre de lunes a sábado de 8:00 AM a 11:00 PM (24/7 en exámenes). El hospital universitario ofrece atención médica continua y transporte oficial.';
     }
 
     // English
-    if (query.includes('library') || query.includes('time') || query.includes('hour')) {
+    if (query.includes('library') || query.includes('time') || query.includes('hour') || query.includes('book')) {
       return isFormal
-        ? 'Official Notice: The Central Library operates Monday through Saturday from 8:00 AM to 10:00 PM. The ground floor study lounge remains accessible 24/7 with a valid student ID card.'
-        : 'Hey there! The Central Library is open Monday to Saturday from 8:00 AM to 10:00 PM. You can also hang out in the 24/7 ground-floor study pods anytime with your student badge!';
+        ? 'Official Notification: The Yenepoya University Central Knowledge Resource Centre operates Monday through Saturday from 8:00 AM to 11:00 PM. During university examinations, reading lounges across its 5 floors remain accessible 24/7 with a smart ID card.'
+        : 'The Yenepoya Central Library is open Monday to Saturday from 8:00 AM to 11:00 PM. During semester exams, reading halls stay open 24/7 with RFID checkouts and PubMed/DELNET digital journals!';
     }
-    if (query.includes('hostel') || query.includes('room')) {
+    if (query.includes('hostel') || query.includes('room') || query.includes('mess')) {
       return isFormal
-        ? 'Hostel room allocations and maintenance requests are processed online through the Facilities Portal or in person at the Chief Warden Office.'
-        : 'Got hostel questions? Room allocations and maintenance requests can be submitted right through the Facilities Portal or at the Chief Warden Office in Block A.';
+        ? 'Hostel Allotment Directive: Accommodations at Zulekha Ladies Hostel and Yenepoya Men’s Hostels (Blocks A-D) feature biometric turnstiles and multi-cuisine dining. Direct inquiries to the Chief Warden Office, Hostel Complex Block A.'
+        : 'Yenepoya offers great hostel living across Zulekha Ladies Hostel and Men’s Hostels A through D, complete with Wi-Fi, laundry, and delicious food. Visit the Chief Warden in Block A to submit your room request!';
     }
-    return 'Campus facilities include the Central Library (8 AM - 10 PM), Olympic Sports Complex, 24/7 Health Center near Gate 2, and campus transit shuttles.';
+    if (query.includes('hospital') || query.includes('health') || query.includes('medical')) {
+      return 'The 1100-bed Yenepoya Medical College Hospital (YMCH) on Deralakatte campus provides free outpatient OPD consultations, subsidized tests, and 24/7 Emergency Casualty care for all students.';
+    }
+    return 'Yenepoya Deralakatte campus features the 5-story Central Library, 1100-bed Teaching Hospital, FIFA-grade artificial football turf, indoor stadium, gym, and comprehensive university shuttle transit.';
   }
 
   // 2. Academic & Admissions
@@ -594,73 +617,84 @@ function getSimulatedDomainKnowledgeResponse(message, language, domain, persona 
     query.includes('fee') ||
     query.includes('exam') ||
     query.includes('admission') ||
+    query.includes('mbbs') ||
+    query.includes('btech') ||
+    query.includes('bca') ||
+    query.includes('nursing') ||
+    query.includes('pharmacy') ||
+    query.includes('dental') ||
+    query.includes('course') ||
     query.includes('ಶುಲ್ಕ') ||
     query.includes('ಪರೀಕ್ಷೆ') ||
+    query.includes('ಕೋಟಿ') ||
+    query.includes('ಅಡ್ಮಿಷನ್') ||
+    query.includes('ಫೀಸ್') ||
     query.includes('फीस')
   ) {
     if (langKey === 'kn') {
       if (query.includes('ಶುಲ್ಕ') || query.includes('ಫೀಸ್')) {
-        return 'ಸೆಮಿಸ್ಟರ್ ಶುಲ್ಕ ಪಾವತಿಸಲು ಕೊನೆಯ ದಿನಾಂಕ ನವೆಂಬರ್ 30. ವಿದ್ಯಾರ್ಥಿ ಪೋರ್ಟಲ್ ಮೂಲಕ ನೆಟ್ ಬ್ಯಾಂಕಿಂಗ್ ಅಥವಾ ಯುಪಿಐ ಮೂಲಕ ಪಾವತಿಸಬಹುದು.';
+        return 'ಯೆನೆಪೊಯ ವಿಶ್ವವಿದ್ಯಾಲಯದ ಸೆಮಿಸ್ಟರ್ ಶುಲ್ಕವನ್ನು ಅಧಿಕೃತ ವಿದ್ಯಾರ್ಥಿ ಇಆರ್‌ಪಿ ಪೋರ್ಟಲ್ (portal.yenepoya.edu.in) ಮೂಲಕ ಯುಪಿಐ ಅಥವಾ ನೆಟ್ ಬ್ಯಾಂಕಿಂಗ್ ಬಳಸಿ ಪಾವತಿಸಬಹುದು. ನಗದು/ಡಿಡಿ ಪಾವತಿಗೆ ಆಡಳಿತ ಭವನದ ಹಣಕಾಸು ಕೌಂಟರ್ 3 ಅಥವಾ ಕೆನರಾ ಬ್ಯಾಂಕ್ ಶಾಖೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ.';
       }
-      if (query.includes('ಪರೀಕ್ಷೆ') || query.includes('ವೇಳಾಪಟ್ಟಿ')) {
-        return 'ಮಧ್ಯ-ಅವಧಿಯ ಪರೀಕ್ಷೆಗಳು ಡಿಸೆಂಬರ್ 15 ರಿಂದ ಪ್ರಾರಂಭವಾಗುತ್ತವೆ. ಹಾಲ್ ಟಿಕೆಟ್‌ಗಳನ್ನು ಪೋರ್ಟಲ್‌ನಿಂದ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿಕೊಳ್ಳಬಹುದು.';
+      if (query.includes('ಪ್ರವೇಶ') || query.includes('ಅಡ್ಮಿಷನ್') || query.includes('ಕೋರ್ಸ್')) {
+        return 'ಯೆನೆಪೊಯ ವಿಶ್ವವಿದ್ಯಾಲಯವು ಎಂಬಿಬಿಎಸ್, ಬಿಡಿಎಸ್, ಬಿ.ಟೆಕ್ (ಸಿಎಸ್‌ಇ/ಎಐ/ಡೇಟಾ ಸೈನ್ಸ್), ಬಿಸಿಎ, ಬಿಬಿಎ, ಬಿ.ಎಸ್ಸಿ ನರ್ಸಿಂಗ್ ಮತ್ತು ಫಾರ್ಮಸಿ ಕೋರ್ಸ್‌ಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಪ್ರವೇಶ ವಿಚಾರಣೆಗೆ ಡೆರಳಕಟ್ಟೆಯ ಮುಖ್ಯ ಆಡಳಿತ ಕಚೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.';
       }
-      return 'ಶೈಕ್ಷಣಿಕ ಸಹಾಯ ಕೇಂದ್ರ: ಕೋರ್ಸ್ ಕ್ರೆಡಿಟ್‌ಗಳು, ಪರೀಕ್ಷಾ ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ಪ್ರವೇಶ ವಿವರಗಳಿಗಾಗಿ ನೀವು ಇಲ್ಲಿ ವಿಚಾರಿಸಬಹುದು.';
+      return 'ಯೆನೆಪೊಯ ಶೈಕ್ಷಣಿಕ ಮಾಹಿತಿ: ಪರೀಕ್ಷೆಗಳು, ಸೆಮಿಸ್ಟರ್ ಅಂಕಗಳು ಮತ್ತು ಹಾಲ್ ಟಿಕೆಟ್‌ಗಳು ವಿದ್ಯಾರ್ಥಿ ಇಆರ್‌ಪಿ ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ಲಭ್ಯವಿರುತ್ತವೆ. ಪರೀಕ್ಷೆಗೆ ಕನಿಷ್ಠ 75% ಹಾಜರಾತಿ ಕಡ್ಡಾಯವಾಗಿದೆ.';
     }
 
     if (langKey === 'hi') {
       if (query.includes('फीस') || query.includes('शुल्क')) {
         return isFormal
-          ? 'अकादमिक विनियम: चालू सत्र हेतु सेमेस्टर फीस जमा करने की अंतिम तिथि 30 नवंबर है। छात्र पोर्टल पर भुगतान रसीद तत्काल जनरेट होती है।'
-          : 'फीस को लेकर चिंता मत करो! इस सेमेस्टर की फीस 30 नवंबर तक जमा करनी है। तुम पोर्टल पर जाकर यूपीआई या कार्ड से सीधे भर सकते हो।';
+          ? 'अकादमिक विनियम: येनेपोया विश्वविद्यालय की सेमेस्टर फीस का भुगतान आधिकारिक छात्र ईआरपी पोर्टल (portal.yenepoya.edu.in) के माध्यम से किया जा सकता है। तत्काल भुगतान रसीद पोर्टल से डाउनलोड की जा सकती है।'
+          : 'फीस भरने के लिए आप सीधे येनेपोया स्टूडेंट पोर्टल (portal.yenepoya.edu.in) पर जाकर नेट बैंकिंग या यूपीआई से जमा कर सकते हैं। एडमिन ब्लॉक के काउंटर 3 पर भी रसीद प्राप्त कर सकते हैं।';
       }
-      if (query.includes('परीक्षा')) {
-        return 'मिड-टर्म परीक्षाएं 15 दिसंबर से शुरू होंगी। परीक्षा हॉल टिकट परीक्षा से 7 दिन पहले पोर्टल पर उपलब्ध होंगे।';
+      if (query.includes('एडमिशन') || query.includes('प्रवेश') || query.includes('कोर्स')) {
+        return 'येनेपोया (डीम्ड यूनिवर्सिटी) में एमबीबीएस, बीडीएस, बी.टेक (एआई, डेटा साइंस, सीएसई), बीसीए, नर्सिंग और बी.फार्मा जैसे प्रमुख पाठ्यक्रम संचालित होते हैं। अधिक जानकारी एडमिशन सेल, डेरलकट्टे से प्राप्त करें।';
       }
-      return 'प्रवेश और शैक्षणिक सहायता केंद्र: आप कोर्स विवरण, सेमेस्टर क्रेडिट और परीक्षा समय सारिणी के बारे में कोई भी प्रश्न पूछ सकते हैं।';
+      return 'येनेपोया शैक्षणिक केंद्र: मिड-टर्म और सेमेस्टर परीक्षा कार्यक्रम, उपस्थिति और हॉल टिकट आधिकारिक पोर्टल पर परीक्षा से पूर्व अपलोड किए जाते हैं।';
     }
 
     if (langKey === 'es') {
-      return 'La fecha límite para el pago de la matrícula semestral es el 30 de noviembre a través del portal estudiantil. Los exámenes inician el 15 de diciembre.';
+      return 'Yenepoya University ofrece programas líderes en Medicina (MBBS), Odontología (BDS), Ingeniería (B.Tech en IA/CS) y Enfermería. Pagos en portal.yenepoya.edu.in.';
     }
 
     if (query.includes('fee')) {
       return isFormal
-        ? 'Institutional Regulation: The deadline for semester fee payments for the current academic session is November 30th through the Student ERP portal via Net Banking or UPI.'
-        : 'Don’t worry about fees! The deadline for this semester is November 30th. You can pay directly through the student portal with UPI or card, and grab your instant receipt.';
+        ? 'Institutional Regulation: Yenepoya University semester fees must be remitted via the Student ERP Portal (portal.yenepoya.edu.in) through UPI, cards, or Net Banking, or at Canara Bank University Extension Counter.'
+        : 'Paying your semester fees at Yenepoya is fast and easy! Just log in to portal.yenepoya.edu.in to pay via UPI or card and download your instant university tax invoice receipt.';
     }
-    if (query.includes('exam')) {
-      return isFormal
-        ? 'Examination Directorate: Mid-term examinations commence on December 15th. Exam hall tickets will be available for download from the Academic Portal 7 days prior.'
-        : 'Heads up! Mid-term exams kick off on December 15th. Hall tickets will unlock on the portal 7 days before exams start.';
+    if (query.includes('admission') || query.includes('course') || query.includes('mbbs') || query.includes('btech')) {
+      return 'Yenepoya (Deemed to be University) offers premier programs in MBBS, BDS, B.Tech (AI, Data Science, CSE, Cybersecurity), BCA, BBA, B.Sc Nursing, B.Pharm, and Allied Health Sciences at Deralakatte campus.';
     }
-    return 'For academic guidance: Courses carry 3 to 4 credits per semester, and a minimum of 75% attendance is required for semester exam eligibility.';
+    return 'Yenepoya Academic Directorate: Minimum 75% attendance in theory and 80% in practicals is mandatory to appear for university examinations. Internal assessment marks are visible on portal.yenepoya.edu.in.';
   }
 
-  // 3. Technical Helpdesk
+  // 3. Technical Helpdesk (Wi-Fi, Yen-Net, ERP Portal, Password)
   if (
     domain === 'Technical Helpdesk' ||
     query.includes('wifi') ||
     query.includes('wi-fi') ||
+    query.includes('yen-net') ||
     query.includes('password') ||
+    query.includes('erp') ||
     query.includes('ವೈ-ಫೈ') ||
     query.includes('ಪಾಸ್‌ವರ್ಡ್') ||
+    query.includes('ಇಆರ್‌ಪಿ') ||
     query.includes('वाईफाई')
   ) {
     if (langKey === 'kn') {
-      return 'ಕ್ಯಾಂಪಸ್ ವೈ-ಫೈಗೆ ಸಂಪರ್ಕಿಸಲು "Campus-Secure" ಆಯ್ಕೆಮಾಡಿ ಮತ್ತು ನಿಮ್ಮ ವಿದ್ಯಾರ್ಥಿ ಗುರುತಿನ ಸಂಖ್ಯೆ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್ ಬಳಸಿ ಲಾಗಿನ್ ಮಾಡಿ. ತಾಂತ್ರಿಕ ಸಹಾಯಕ್ಕಾಗಿ ರೂಮ್ 204 ಸಂಪರ್ಕಿಸಿ.';
+      return 'ಯೆನೆಪೊಯ ಕ್ಯಾಂಪಸ್ ಹೈ-ಸ್ಪೀಡ್ ವೈ-ಫೈಗೆ (Yen-Net) ಸಂಪರ್ಕಿಸಲು ನಿಮ್ಮ ಲ್ಯಾಪ್‌ಟಾಪ್ ಅಥವಾ ಮೊಬೈಲ್‌ನ MAC ವಿಳಾಸವನ್ನು ಟೆಕ್ನಾಲಜಿ ಬ್ಲಾಕ್‌ನ ಕೊಠಡಿ 204 ರಲ್ಲಿ ನೋಂದಾಯಿಸಿ. ನಂತರ ನಿಮ್ಮ ವಿದ್ಯಾರ್ಥಿ ಯೂಸರ್ ಐಡಿ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್ ಬಳಸಿ ಲಾಗಿನ್ ಮಾಡಿ.';
     }
     if (langKey === 'hi') {
       return isFormal
-        ? 'आईटी सुरक्षा दिशानिर्देश: कैंपस सुरक्षित नेटवर्क से जुड़ने के लिए "Campus-Secure" चुनें और WPA2-Enterprise क्रेडेंशियल दर्ज करें। सहायता हेतु आईटी डेस्क कक्ष 204 उपस्थित है।'
-        : 'वाई-फाई कनेक्ट करना बहुत आसान है! "Campus-Secure" नेटवर्क चुनो और अपने रोल नंबर तथा पोर्टल पासवर्ड से लॉगिन कर लो। कोई दिक्कत हो तो आईटी रूम 204 चले जाना!';
+        ? 'आईटी नीति निर्देश: येनेपोया "Yen-Net" वाई-फाई से जुड़ने हेतु अपना डिवाइस मैक एड्रेस टेक्नोलॉजी सेंटर के कमरा नंबर 204 में दर्ज कराएं। छात्र पोर्टल पासवर्ड रीसेट portal.yenepoya.edu.in पर उपलब्ध है।'
+        : 'Yen-Net वाई-फाई कनेक्ट करना बहुत सरल है! टेक्नोलॉजी ब्लॉक के रूम 204 जाकर मैक एड्रेस रजिस्टर करवा लें, फिर अपने रोल नंबर और पोर्टल पासवर्ड से लॉगिन करके हाई-स्पीड इंटरनेट का आनंद लें!';
     }
     if (langKey === 'es') {
-      return 'Para conectarse a la red Wi-Fi del campus, seleccione "Campus-Secure" e ingrese sus credenciales de estudiante. La mesa de ayuda técnica está en la Sala 204.';
+      return 'Para conectarse a la red Wi-Fi "Yen-Net", registre la dirección MAC de su equipo en el Centro Tecnológico, Sala 204. Gestión de credenciales en portal.yenepoya.edu.in.';
     }
     return isFormal
-      ? 'IT Policy Notice: To connect to the campus Wi-Fi, select SSID "Campus-Secure" and authenticate via WPA2-Enterprise using your university student ID and password. The Helpdesk is in Tech Block, Room 204.'
-      : 'Connecting to Wi-Fi is super simple! Just choose the "Campus-Secure" network, log in with your student roll number and ERP password, and you are all set to surf!';
+      ? 'Yenepoya IT Helpdesk Directive: To connect to "Yen-Net" enterprise Wi-Fi, register your device physical MAC address at Technology Center Block Room 204. For portal password resets or SSO lockouts, contact ithelpdesk@yenepoya.edu.in (Ext: 2040).'
+      : 'Connecting to Yen-Net Wi-Fi is super fast! Head to Room 204 in the Tech Block with your device to whitelist your MAC address, then sign in with your student credentials. You can also reset portal passwords at portal.yenepoya.edu.in!';
   }
 
   // 9. ID CARD, BONAFIDE & TRANSCRIPTS
@@ -683,31 +717,31 @@ function getSimulatedDomainKnowledgeResponse(message, language, domain, persona 
     query.includes('अंकतालिका')
   ) {
     if (langKey === 'kn') {
-      return 'ವಿದ್ಯಾರ್ಥಿ ಗುರುತಿನ ಚೀಟಿ, ಬೋನಾಫೈಡ್ ಪ್ರಮಾಣಪತ್ರ ಮತ್ತು ಅಧಿಕೃತ ಅಂಕಪಟ್ಟಿಗಳನ್ನು ಪಡೆಯಲು ಆಡಳಿತ ಭವನದ ಕೌಂಟರ್ 4 ರಲ್ಲಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಬಹುದು. ಸಾಮಾನ್ಯವಾಗಿ 1 ರಿಂದ 2 ವ್ಯವಹಾರ ದಿನಗಳಲ್ಲಿ ಇವುಗಳನ್ನು ವಿತರಿಸಲಾಗುತ್ತದೆ.';
+      return 'ಯೆನೆಪೊಯ ಅಧಿಕೃತ ವಿದ್ಯಾರ್ಥಿ ಸ್ಮಾರ್ಟ್ ಐಡಿ ಕಾರ್ಡ್, ಬೋನಾಫೈಡ್ ಪ್ರಮಾಣಪತ್ರ ಅಥವಾ ಅಧಿಕೃತ ಅಂಕಪಟ್ಟಿಗಳನ್ನು ಪಡೆಯಲು ಡೆರಳಕಟ್ಟೆ ಆಡಳಿತ ಭವನದ ಕೌಂಟರ್ 4 (ರಿಜಿಸ್ಟ್ರಾರ್ ಕಚೇರಿ) ಸಂಪರ್ಕಿಸಿ. ಅರ್ಜಿ ಸಲ್ಲಿಸಿದ 24 ರಿಂದ 48 ಗಂಟೆಗಳಲ್ಲಿ ಇವುಗಳನ್ನು ವಿತರಿಸಲಾಗುತ್ತದೆ.';
     }
     if (langKey === 'hi') {
       return isFormal
-        ? 'प्रशासनिक सूचना: छात्र पहचान पत्र, बोनाफाइड प्रमाणपत्र एवं आधिकारिक ट्रांसक्रिप्ट प्रशासनिक भवन के काउंटर 4 द्वारा जारी किए जाते हैं।'
-        : 'आईडी कार्ड या सर्टिफिकेट चाहिए? बस एडमिन ब्लॉक के काउंटर 4 पर चले जाओ, वहां फॉर्म जमा करते ही 1-2 दिन में रेडी हो जाता है!';
+        ? 'प्रशासनिक सूचना: येनेपोया विश्वविद्यालय के स्मार्ट आईडी कार्ड, बोनाफाइड सर्टिफिकेट और मुहरबंद ट्रांसक्रिप्ट प्रशासनिक ब्लॉक, डेरलकट्टे के काउंटर 4 (रजिस्ट्रार ऑफिस) द्वारा जारी किए जाते हैं।'
+        : 'आईडी कार्ड या बोनाफाइड सर्टिफिकेट चाहिए? एडमिन ब्लॉक के काउंटर 4 पर फॉर्म भरकर जमा कर दें, वहां से 1-2 कार्यदिवसों में आधिकारिक प्रमाणपत्र प्राप्त हो जाता है!';
     }
     if (langKey === 'es') {
-      return 'Para trámites como emisión de credenciales de estudiante, constancias de estudio o certificados oficiales, acuda a la Oficina del Registrador en el Edificio Central.';
+      return 'Para solicitar credenciales de estudiante o certificados oficiales en Yenepoya University, acuda a la Ventanilla 4 del Edificio Administrativo en el campus de Deralakatte.';
     }
     return isFormal
-      ? 'Registrar Office Directive: Student ID cards, bonafide certificates, and transcripts are issued by Counter 4 in the Central Administration Block. Processing requires 1 to 2 business days.'
-      : 'Need an ID card or bonafide certificate? Head over to Counter 4 in the Admin Block. Just submit the quick application form and they will have it ready for you in a day or two!';
+      ? 'Yenepoya Registrar Office Directive: Student Smart ID cards, bonafide verification certificates, and official transcripts are processed at Counter 4 in the Central Administration Block, Deralakatte campus.'
+      : 'Need a replacement ID card or bonafide certificate? Just stop by Counter 4 in the Admin Block at Deralakatte. Hand in the quick form and the registrar team will have it attested for you within 1 to 2 business days!';
   }
 
-  // 10. CONTEXTUAL & POLITE ADAPTIVE FALLBACK (Never forcing hardcoded ID card)
+  // 10. CONTEXTUAL & POLITE ADAPTIVE FALLBACK
   if (langKey === 'kn') {
-    return 'ನಿಮ್ಮ ಪ್ರಶ್ನೆಗೆ ಸಂಬಂಧಿಸಿದಂತೆ ವಿಶ್ವವಿದ್ಯಾಲಯದ ಪೋರ್ಟಲ್ ಅಥವಾ ಮುಖ್ಯ ಆಡಳಿತ ಕಚೇರಿಯಿಂದ ಸಹಾಯ ಪಡೆಯಬಹುದು. ನೀವು ಗ್ರಂಥಾಲಯ, ಸೆಮಿಸ್ಟರ್ ಶುಲ್ಕ, ಪರೀಕ್ಷಾ ವೇಳಾಪಟ್ಟಿ, ಹಾಸ್ಟೆಲ್ ಸೌಲಭ್ಯ ಅಥವಾ ವೈ-ಫೈ ಬಗ್ಗೆ ನಿರ್ದಿಷ್ಟ ಮಾಹಿತಿ ಬಯಸುವಿರಾ?';
+    return 'ಯೆನೆಪೊಯ ವಿಶ್ವವಿದ್ಯಾಲಯದ ಯಾವುದೇ ಮಾಹಿತಿಗಾಗಿ ನಾನು ನಿಮಗೆ ಸಹಾಯ ಮಾಡಬಲ್ಲೆ. ನೀವು ಗ್ರಂಥಾಲಯ, ಸೆಮಿಸ್ಟರ್ ಶುಲ್ಕ, ಪರೀಕ್ಷಾ ವೇಳಾಪಟ್ಟಿ, ಹಾಸ್ಟೆಲ್ ಅಥವಾ ಯೆನ್-ನೆಟ್ ವೈ-ಫೈ ಬಗ್ಗೆ ವಿಚಾರಿಸಲು ಬಯಸುವಿರಾ?';
   }
   if (langKey === 'hi') {
-    return 'आपकी सहायता के लिए मैं तत्पर हूँ। कृपया बताएं कि आप लाइब्रेरी, सेमेस्टर फीस, परीक्षा समय सारिणी, हॉस्टल, वाई-फाई या प्रशासनिक सेवाओं में से किस विषय पर जानकारी चाहते हैं?';
+    return 'येनेपोया विश्वविद्यालय (Yenepoya Deemed to be University) से जुड़ी किसी भी सहायता के लिए मैं उपस्थित हूँ। कृपया बताएं कि आप लाइब्रेरी, फीस, हॉस्टल, अस्पताल, परीक्षा या येन-ನೆಟ್ वाई-फाई में से क्या जानना चाहते हैं?';
   }
   if (langKey === 'es') {
-    return '¡Con mucho gusto te ayudo! Por favor indica si tu consulta se relaciona con la biblioteca, pagos, exámenes, residencia o servicios técnicos.';
+    return 'Estoy a su disposición en Yenepoya University. Indique si desea información sobre la biblioteca, pagos, exámenes, residencia o soporte técnico.';
   }
 
-  return 'I am glad to help you! Could you please clarify if your question pertains to library timings, fee schedules, exam dates, hostel facilities, campus Wi-Fi, or administrative certificates?';
+  return 'I am here to assist you across Yenepoya (Deemed to be University)! Could you please specify if you need information regarding Central Library timings, course fees, exam dates, hostel living, or Yen-Net campus Wi-Fi?';
 }
